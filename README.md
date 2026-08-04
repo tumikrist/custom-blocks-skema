@@ -27,34 +27,142 @@ To edit this repository in MakeCode.
 
 # GameKit
 
-GameKit is a MakeCode Arcade extension that adds helper blocks for enemy AI and platformer games.
+GameKit is a MakeCode Arcade extension that provides useful blocks for creating platformer games. It includes enemy AI, gravity helpers, hazard damage, and enemy spawning from tilemaps.
+
+## Features
+
+- 🏃 Simple enemy patrol AI
+- 🌍 Gravity helper for sprites
+- ☠️ Damage from hazard tiles with invincibility cooldown
+- 👾 Spawn enemies from tilemap spawn points
+
+---
 
 ## Blocks
 
 ### Make Enemy Patrol
 
-Makes an enemy walk back and forth, turning around when it hits a wall.
+Makes an enemy continuously walk left and right. The enemy automatically turns around whenever it collides with a wall.
 
 ```blocks
 GameKit.makeEnemyPatrol(myEnemy, 30)
 ```
 
+**Parameters**
+
+| Name | Description |
+|------|-------------|
+| `enemy` | The sprite that will patrol. |
+| `speed` | How fast the enemy moves horizontally. |
+
+---
+
 ### Give Gravity
 
-Applies gravity to a sprite.
+Applies platformer-style gravity to a sprite.
 
 ```blocks
 GameKit.giveGravity(mySprite)
 ```
 
+This sets the sprite's vertical acceleration (`ay`) to `200`.
+
+**Parameters**
+
+| Name | Description |
+|------|-------------|
+| `sprite` | The sprite to apply gravity to. |
+
+---
+
 ### Spawn Enemies On Tiles
 
-Creates a new enemy on every tile of the selected type.
+Creates a new enemy sprite on every tile of the selected tile type.
+
+Each spawned enemy:
+- is placed on its tile
+- automatically patrols
+- automatically has gravity applied
+- removes the spawn tile after spawning
 
 ```blocks
-GameKit.spawnEnemiesOnTiles(enemyImage, SpriteKind.Enemy, assets.tile`enemySpawn`)
+GameKit.spawnEnemiesOnTiles(
+    enemyImage,
+    SpriteKind.Enemy,
+    assets.tile`enemySpawn`
+)
 ```
+
+**Parameters**
+
+| Name | Description |
+|------|-------------|
+| `img` | The image used for every spawned enemy. |
+| `kind` | The SpriteKind of the new enemies. |
+| `tileType` | Every tile of this type becomes an enemy spawn point. |
+
+---
+
+### Take Damage From Tile
+
+Makes a player lose lives when touching a hazard tile.
+
+The block includes:
+- configurable damage
+- invincibility cooldown
+- optional bounce effect
+- configurable bounce force
+
+```blocks
+GameKit.takeDamageFromTile(
+    myPlayer,
+    assets.tile`lava`,
+    1,
+    500,
+    true,
+    100
+)
+```
+
+**Parameters**
+
+| Name | Description |
+|------|-------------|
+| `player` | The player sprite that can take damage. |
+| `tile` | The hazard tile. |
+| `damage` | Number of lives lost each hit. |
+| `cooldown` | Time (milliseconds) before damage can be taken again. |
+| `bounce` | Whether the player is knocked upward after taking damage. |
+| `bounceForce` | The strength of the bounce. |
+
+---
+
+## Example
+
+```blocks
+GameKit.giveGravity(player)
+
+GameKit.takeDamageFromTile(
+    player,
+    assets.tile`lava`,
+    1
+)
+
+GameKit.spawnEnemiesOnTiles(
+    enemyImage,
+    SpriteKind.Enemy,
+    assets.tile`enemySpawn`
+)
+```
+
+---
+
+## Installation
+
+Open **Extensions** inside MakeCode Arcade and search for **GameKit**, or paste the GitHub repository URL.
+
+---
 
 ## License
 
-MIT
+This project is licensed under the MIT License.
