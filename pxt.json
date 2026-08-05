@@ -1,6 +1,6 @@
 {
     "name": "custom-blocks-skema",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "GameKit extension",
     "dependencies": {
         "device": "*"
