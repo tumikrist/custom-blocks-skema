@@ -6,8 +6,7 @@
         "device": "*"
     },
     "files": [
-        "custom.ts",
-        "README.md"
+        "custom.ts"
     ],
     "targetVersions": {
         "target": "4.0.14",
