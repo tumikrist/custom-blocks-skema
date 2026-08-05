@@ -9,6 +9,10 @@
         "custom.ts",
         "README.md"
     ],
+    "targetVersions": {
+        "target": "4.0.14",
+        "targetId": "arcade"
+    },
     "supportedTargets": [
         "arcade"
     ]
