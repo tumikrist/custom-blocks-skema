@@ -113,7 +113,7 @@ namespace GameKit {
             GameKit.giveGravity(newEnemy);
 
             // 4. Remove the tile at pos
-            tiles.setTileAt(value, assets.tile`transparency16`)
+            //tiles.setTileAt(value, assets.tile`transparency16`)
         }
     }
 }
