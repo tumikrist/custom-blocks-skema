@@ -6,7 +6,8 @@
         "device": "*"
     },
     "files": [
-        "custom.ts"
+        "custom.ts",
+        "README.md"
     ],
     "supportedTargets": [
         "arcade"
