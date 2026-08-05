@@ -1,23 +1,14 @@
 {
-    "name": "gamekit",
+    "name": "custom-blocks-skema",
     "version": "1.0.0",
-    "description": "Platformer helper blocks for MakeCode Arcade",
+    "description": "GameKit extension",
     "dependencies": {
         "device": "*"
     },
     "files": [
-        "custom.ts",
-        "README.md"
+        "custom.ts"
     ],
-    "testFiles": [
-        "test.ts"
-    ],
-    "targetVersions": {
-        "target": "4.0.14",
-        "targetId": "arcade"
-    },
     "supportedTargets": [
         "arcade"
-    ],
-    "preferredEditor": "tsprj"
+    ]
 }
